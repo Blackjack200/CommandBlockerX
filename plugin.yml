@@ -1,0 +1,19 @@
+name: CommandBlockerX
+description: Block people from using commands in PocketMine-MP
+
+main: twisted\commandblockerx\CommandBlockerX
+version: 1.0.0
+api: 3.2.0
+
+author: Twisted
+website: https://twistedasylummc.me
+
+commands:
+  commandblocker:
+    aliases: [cb]
+    description: Manage command blocker
+    permission: commandblockerx.command
+
+permissions:
+  commandblockerx.command:
+    default: op

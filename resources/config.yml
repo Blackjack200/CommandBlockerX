@@ -1,0 +1,13 @@
+---
+blocked-commands: # List of blocked commands without the slash (/)
+  me: # Command name
+    console: true # Block in console
+    in-game: true # Block in game
+    rcon: true # Block in RCON
+  say:
+    console: false
+    in-game: true
+    rcon: false
+messages: # List of configurable messages sent to command senders
+  command-blocked: "§cThis command is blocked" # If a command is blocked, use § for color
+...
