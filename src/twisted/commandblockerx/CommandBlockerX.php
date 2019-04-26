@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace twisted\commandblockerx;
 
+use function explode;
 use function file_exists;
 use function implode;
 use function is_array;
@@ -15,7 +16,6 @@ use pocketmine\event\server\CommandEvent;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
-use function var_dump;
 
 class CommandBlockerX extends PluginBase implements Listener{
 
@@ -55,7 +55,8 @@ class CommandBlockerX extends PluginBase implements Listener{
     }
 
     public function onServerCommand(CommandEvent $event) : void{
-        $command = $event->getCommand();
+        $command = explode(":", $event->getCommand());
+        $command = $command[1] ?? $command[0];
         $sender = $event->getSender();
         $blockedCommands = $this->getConfig()->get("blocked-commands", []);
         if(!is_array($blockedCommands)){
