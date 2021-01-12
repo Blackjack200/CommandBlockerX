@@ -55,8 +55,7 @@ class CommandBlockerX extends PluginBase implements Listener{
     }
 
     public function onServerCommand(CommandEvent $event) : void{
-        $command = explode(":", $event->getCommand());
-        $command = $command[1] ?? $command[0];
+        $command = (string) (explode(" ", $event->getCommand()) ?? '');
         $sender = $event->getSender();
         $blockedCommands = $this->getConfig()->get("blocked-commands", []);
         if(!is_array($blockedCommands)){
